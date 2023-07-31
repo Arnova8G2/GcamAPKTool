@@ -1,0 +1,45 @@
+
+#Arabic (ar)
+#Chinese (zh)
+#English (en)
+#French (fr)
+#German (de)
+#Japanese (ja)
+#Polish (pl)
+#Russian (ru)
+#Ukrainian (uk)
+
+######################################
+#         Settings
+######################################
+
+# Language Code for copying (en, zh, ru, ua, ...)
+# default = ru
+language.code=fr
+
+
+# If feature module is in apks file:
+# true = add module to apk file
+# false = skip module files
+# WARNING apk with module, cannot be rebuild, with using apktools (BAT, APK Editor, Apktool, etc)
+# default = true
+module.enable=true
+
+
+# allow mismatching packages and version (true, false)
+# default = false
+allow.mismatching.packages=false
+
+
+# allow compress so files in lib folder
+# in manifest delete android:extractNativeLibs="false"
+# option need for editing apk file in Apk Editor
+# false = not change *.so files and manifest
+# true = delete attribute in manifest and compress *.so files
+# default = false
+allow.compress.so.files=true
+
+
+# Enable signing output apk file (true, false) 
+# default = true
+sign.enable=true
