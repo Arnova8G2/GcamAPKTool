@@ -2,6 +2,7 @@
 
 :_make_choice_apktool
 cls
+ECHO - Download and compile last commit for apktool
 ECHO.
 ECHO   1 - build last commit apktool
 ECHO   2 - clean build
@@ -14,9 +15,12 @@ SET /P INPUT=-- Choice :
 IF /I "%INPUT%" EQU "1" GOTO :build_apktool
 IF /I "%INPUT%" EQU "2" GOTO :work_clean
 IF /I "%INPUT%" EQU "3" GOTO :build_smali
-IF /I "%INPUT%" EQU "0" GOTO :eof
+IF /I "%INPUT%" EQU "0" GOTO :end
 
 GOTO _make_choice_apktool
+
+:end
+CALL %DIRNAMES%GcamAPKTool.bat
 
 :build_smali
 @rem --------------------------
@@ -91,13 +95,18 @@ SET "foldercommit=Apktool-%commit%"
 IF EXIST "%foldercommit%" (
    rmdir /f /q /a "%foldercommit%" >> "%LOG_FILE%"
 )
-
+cls
+echo Download last commit : %commit%...
+ECHO.
 %CURL_TOOL% %urlcommit% -o Apktool.zip
 IF errorlevel 1 (
 	ECHO apktool error download
 	GOTO work_error
 )
 
+cls
+echo Preparing compilation...
+ECHO.
 %ZIP% x -tzip "Apktool.zip" -aoa -sccWIN >> "%LOG_FILE%"
 IF errorlevel 1 (
 	ECHO error unzip
@@ -166,19 +175,28 @@ FOR %%i IN ("%foldercommit%\brut.apktool\apktool-cli\build\libs\apktool*small*.j
 )
 
 SET "search=%search:~0,-4%"
-COPY "%FileName%" "ApkTool\%search%_%FileDate%.jar" >> "%LOG_FILE%"
-COPY "%FileName%" "%APK_SDK_TOOL%apktool.jar" >> "%LOG_FILE%"
+
+COPY "%FileName%" "%APK_SDK_TOOL%%search%_%FileDate%.jar" >> "%LOG_FILE%"
+
 IF EXIST "%APK_SDK_TOOL%apktool.jar" (
    DEL "%APK_SDK_TOOL%apktool.jar" >> "%LOG_FILE%"
 )
+COPY "%FileName%" "%APK_TOOL%" >> "%LOG_FILE%"
 cls
 ECHO build done : %search%_%FileDate%.jar
-
+pause
 IF %count%==0 (
 	ECHO error build
 )
 
+cls
+echo Compilation file cleanup...
+ECHO.
 IF EXIST "%foldercommit%" (
+mkdir c:\empty
+robocopy /MIR c:\empty %foldercommit%
+rmdir %foldercommit%
+rmdir c:\empty
    rmdir /f /q /a "%foldercommit%" >> "%LOG_FILE%"
 )
 
@@ -216,4 +234,4 @@ IF EXIST "%folder%" (
     CD /d %folder%
     FOR /F "delims=" %%i IN ('DIR /b') DO (RMDIR "%%i" /s/q || DEL "%%i" /s/q)
 )
-GOTO _make_choice_apktool
+GOTO end

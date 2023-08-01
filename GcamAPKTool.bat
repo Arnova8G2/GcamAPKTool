@@ -39,6 +39,7 @@ EXIT
 
 :_make_choice 
 cls
+ECHO - GcamAPKTool all tools for gcam
 ECHO.
 ECHO   1 - Compile apktool
 ECHO   2 - Run Logcat
@@ -56,7 +57,7 @@ IF /I "%INPUT%" EQU "2" GOTO :logcat
 IF /I "%INPUT%" EQU "3" GOTO :Dumpsys
 IF /I "%INPUT%" EQU "4" GOTO :Install
 IF /I "%INPUT%" EQU "5" GOTO :Help
-IF /I "%INPUT%" EQU "0" GOTO :eof
+IF /I "%INPUT%" EQU "0" GOTO :end
 GOTO _make_choice
 
 :tool
@@ -83,4 +84,5 @@ GOTO _make_choice
 CALL %TOOL_GCAM_FOLDER%run-Help.bat
 GOTO _make_choice
 
-:eof
+:end
+EXIT
