@@ -2,11 +2,15 @@
 TITLE GcamAPKTool
 
 @rem --------------------------
-@rem ----- dir name Environment -
+@rem --- dir name Environment -
 @rem --------------------------
 SET DIRNAME=%~dp0
 IF DEFINED DIRNAME IF %DIRNAME% == "" SET DIRNAME=.
 CD /D %DIRNAME%
+set APP_HOME=%DIRNAME%
+
+@rem Resolve any "." and ".." in APP_HOME to make it shorter.
+for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
 
 SET APP_BASE_NAME=%~nx1
 SET DEST_BASE=%1
@@ -20,12 +24,16 @@ IF [%1]==[] (
 
 
 IF [%2]==[-c] (
-  SET mode=compile
+  SET mode=Compile
   CALL %TOOL_GCAM_FOLDER%Recompil.bat
 )
 IF [%2]==[-d] (
-  SET mode=decompile
+  SET mode=Decompile
   CALL %TOOL_GCAM_FOLDER%Decompil.bat
+)
+IF [%2]==[-s] (
+  SET mode=AntiSplit
+  CALL %TOOL_GCAM_FOLDER%AntiSplit2.bat
 )
 
 :_make_run

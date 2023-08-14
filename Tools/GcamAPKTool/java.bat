@@ -64,5 +64,12 @@ GOTO download
 
 :execute
 ECHO Run Java Runtime Environment
+
+%SET_JAVA% -version >> "%log_file%" 2>&1
+echo.>>"%log_file%"
+echo Check Java InitialHeapSize & MaxHeapSize >> "%log_file%"
+echo.>>"%log_file%"
+%SET_JAVA% -XX:+PrintFlagsFinal -version | findstr /i "HeapSize PermSize ThreadStackSize" >> "%log_file%"
+echo.>>"%log_file%"
 SET path=%JAVA_HOME%/bin;%PATH%
 ECHO %path% >nul

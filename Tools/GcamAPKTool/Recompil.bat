@@ -91,4 +91,4 @@ CALL %TOOL_GCAM_FOLDER%compile.bat
 IF EXIST "%APK_FILE%.apk" (
     CALL %TOOL_GCAM_FOLDER%checksum.bat
 )
-PAUSE
+EXIT

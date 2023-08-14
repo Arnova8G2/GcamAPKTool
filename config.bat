@@ -86,6 +86,11 @@ SET SIGNER_USE_ME_SIGNE=--force-stamp-overwrite --min-sdk-version 30 --max-sdk-v
 SET JAVA_SDK_TOOL=%TOOL_FOLDER%jdk8u252
 SET DEFAULT_JVM="-Xms128M" "-XX:MaxRAMPercentage=70.0" "-XX:+UseG1GC" "-Dawt.useSystemAAFontSettings=lcd" "-Dswing.aatext=true" "-Djava.util.Arrays.useLegacyMergeSort=true" "-Djdk.util.zip.disableZip64ExtraFieldValidation=true"
 
+@rem AntiSplit
+SET SPLIT_TOOL=%APK_SDK_TOOL%AntiSplit-G2\ArscMerge.jar
+SET SPLIT_JVM_COMPIL=split
+
+
 @rem --------------------------
 @rem ---- Install Environment -
 @rem --------------------------
