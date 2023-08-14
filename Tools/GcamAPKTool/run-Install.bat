@@ -30,27 +30,27 @@ reg add "HKCR\SystemFileAssociations\.apk\shell\subtitle\command" /F /VE /T REG_
 
 reg delete "HKCR\SystemFileAssociations\.apks\shell\subtitle" /F >NUL 2>&1
 reg add "HKCR\SystemFileAssociations\.apks\shell\subtitle" /F /VE /T REG_SZ /D "Decompile This APK"
-reg add "HKCR\SystemFileAssociations\.apks\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -c"
+reg add "HKCR\SystemFileAssociations\.apks\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -s"
 
 reg delete "HKCR\SystemFileAssociations\.apks\shell\subtitle" /F >NUL 2>&1
 reg add "HKCR\SystemFileAssociations\.apks\shell\subtitle" /F /VE /T REG_SZ /D "AntiSplit2 This APK"
-reg add "HKCR\SystemFileAssociations\.apks\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -c"
+reg add "HKCR\SystemFileAssociations\.apks\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -s"
 
 reg delete "HKCR\SystemFileAssociations\.apkm\shell\subtitle" /F >NUL 2>&1
 reg add "HKCR\SystemFileAssociations\.apkm\shell\subtitle" /F /VE /T REG_SZ /D "AntiSplit2 This APK"
-reg add "HKCR\SystemFileAssociations\.apkm\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -c"
+reg add "HKCR\SystemFileAssociations\.apkm\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -s"
 
 reg delete "HKCR\SystemFileAssociations\.apkm\shell\subtitle" /F >NUL 2>&1
 reg add "HKCR\SystemFileAssociations\.apkm\shell\subtitle" /F /VE /T REG_SZ /D "AntiSplit2 This APK"
-reg add "HKCR\SystemFileAssociations\.apkm\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -c"
+reg add "HKCR\SystemFileAssociations\.apkm\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -s"
 
 reg delete "HKCR\SystemFileAssociations\.xapk\shell\subtitle" /F >NUL 2>&1
 reg add "HKCR\SystemFileAssociations\.xapk\shell\subtitle" /F /VE /T REG_SZ /D "AntiSplit2 This APK"
-reg add "HKCR\SystemFileAssociations\.xapk\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -c"
+reg add "HKCR\SystemFileAssociations\.xapk\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -s"
 
 reg delete "HKCR\SystemFileAssociations\.xapk\shell\subtitle" /F >NUL 2>&1
 reg add "HKCR\SystemFileAssociations\.xapk\shell\subtitle" /F /VE /T REG_SZ /D "AntiSplit2 This APK"
-reg add "HKCR\SystemFileAssociations\.xapk\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -c"
+reg add "HKCR\SystemFileAssociations\.xapk\shell\subtitle\command" /F /VE /T REG_SZ /D "\"%DIRNAMES%GcamAPKTool.bat\" %%1 -s"
 GOTO _make_choice
 
 :uninstall

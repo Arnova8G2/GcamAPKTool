@@ -22,17 +22,8 @@ ECHO I: Set Apk file: "%DEST_BASE%" >> "%LOG_FILE%"
 @rem --------------------------
 CALL %TOOL_GCAM_FOLDER%java.bat
 
-
-SET COMPILE_APK=%DECOMPILE_FOLDER%%FILE%
-
-ECHO AntiSplit2 %COMPILE_APK%
-
 ECHO AntiSplit2 %FILE%...
 
-%SET_JAVA% %DEFAULT_JVM% -jar "%SPLIT_TOOL%" %SPLIT_JVM_DECOMPIL% %DEST_BASE% >> "%log_file%"
-
-ECHO. >> "%LOG_FILE%"
-ECHO AntiSplit2 successful. >> "%LOG_FILE%"
-ECHO ------------------------------------------ >> "%LOG_FILE%"
+%SET_JAVA% %DEFAULT_JVM% -jar "%SPLIT_TOOL%" split %DEST_BASE% >> "%log_file%"
 ECHO AntiSplit2 successful.
 pause
